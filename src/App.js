@@ -10,11 +10,11 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import AddProduct from "./Components/Products/AddProduct";
 import EditProduct from "./Components/Products/EditProduct";
-import { cartStore } from "./Store/cartStore";
+import { store } from "./Store/appStore";
 
 function App() {
   return (
-    <Provider store={cartStore}>
+    <Provider store={store}>
       <BrowserRouter>
         <Navbar />
         <Routes>

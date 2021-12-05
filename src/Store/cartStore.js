@@ -1,7 +1,4 @@
-import { createStore } from "redux";
-
 // imena akcija
-
 
 const ADD_TO_CART = "ADD TO CART";
 const REMOVE_FROM_CART = "REMOVE FROM CART";
@@ -10,11 +7,12 @@ const EMPTY_CART = "EMPTY CART";
 // action creator
 
 export const addToCart = (product) => {
-  console.log(product)
-  return ({
-  type: ADD_TO_CART,
-  payload: product,
-})};
+  console.log(product);
+  return {
+    type: ADD_TO_CART,
+    payload: product,
+  };
+};
 
 export const removeFromCart = (product) => ({
   type: REMOVE_FROM_CART,
@@ -25,7 +23,6 @@ export const emptyCart = () => ({
   type: EMPTY_CART,
 });
 
-
 // initail state (pocetno stanje)
 
 const initalState = {
@@ -34,7 +31,7 @@ const initalState = {
 
 // reducer
 
-const reducer = (state = initalState, action) => {
+export const cartReducer = (state = initalState, action) => {
   switch (action.type) {
     case ADD_TO_CART:
       return {
@@ -57,7 +54,3 @@ const reducer = (state = initalState, action) => {
       return state;
   }
 };
-
-export const cartStore = createStore(reducer, 
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-  );
